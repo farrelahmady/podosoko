@@ -1,0 +1,570 @@
+@import url("default.css");
+@import url("keyframes.css");
+@import url("home.css");
+@import url("https://unpkg.com/swiper/swiper-bundle.min.css");
+
+body {
+	/* width: 100%; */
+	background-color: #f6f8fd;
+}
+
+/* Header */
+header {
+	background-color: #ffff;
+}
+header h1,
+header a {
+	font-size: small;
+	font-family: inherit;
+	color: inherit;
+}
+nav {
+	width: 75vw;
+	justify-content: space-between;
+}
+nav a {
+	padding: 0.25rem 0.75rem;
+	text-transform: capitalize;
+	border-radius: 0.5rem;
+	font-size: x-small;
+	font-weight: 600;
+}
+.btn {
+	font-weight: 600;
+	color: white;
+	background-color: #2447f9;
+}
+.nav:hover,
+.nav:active {
+	background-color: rgba(243, 244, 246, 1);
+	animation: wiggle 1s ease-in-out infinite;
+}
+.btn:hover,
+.btn:active {
+	background-color: #162b96;
+}
+/* end header */
+
+/* footer */
+footer {
+	color: #ffff;
+	background-color: #2447f9;
+}
+footer a {
+	font-size: x-small;
+	font-family: inherit;
+	color: inherit;
+	display: flex;
+	align-items: center;
+	font-weight: 600;
+}
+footer i {
+	margin-left: 0.5em;
+}
+
+/* end footer */
+
+/* home */
+#home {
+	height: 100vh;
+}
+
+#slide,
+#home,
+#slide-show {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	display: flex;
+	flex-wrap: wrap;
+	overflow: hidden;
+	align-items: center;
+}
+#home {
+	padding: 0;
+	justify-content: center;
+}
+#home i {
+	position: absolute;
+	z-index: 999;
+	color: white;
+	font-size: 1.5em;
+	margin: 0.5em;
+	opacity: 0.2;
+	transition: opacity 0.5s;
+}
+#home i:hover {
+	opacity: 1;
+}
+.fa-chevron-circle-left {
+	left: 0;
+}
+.fa-chevron-circle-right {
+	right: 0;
+}
+#slide {
+	position: absolute;
+}
+
+#slide .slide-anim-1 {
+	width: 10%;
+	height: 10%;
+	animation: cb-up 0.2s ease-in-out forwards;
+}
+#slide .slide-anim-1:nth-child(even) {
+	animation: cb-up 0.4s ease-in-out forwards;
+}
+#slide .slide-anim-1:nth-child(7n + 3) {
+	animation: cb-up 0.6s ease-in-out forwards;
+}
+#slide .slide-anim-2 {
+	width: 10%;
+	height: 10%;
+	animation: cb-left 0.2s ease-in-out forwards;
+}
+#slide .slide-anim-2:nth-child(even) {
+	animation: cb-left 0.4s ease-in-out forwards;
+}
+#slide .slide-anim-2:nth-child(7n + 3) {
+	animation: cb-left 0.6s ease-in-out forwards;
+}
+#home #title-box {
+	position: absolute;
+}
+#home .head {
+	font-size: 3em;
+	height: fit-content;
+	font-family: "Montserrat", sans-serif;
+	height: fit-content;
+	margin-bottom: 0.1em;
+	font-weight: 600;
+}
+#home .desc {
+	font-size: 1.5em;
+	height: fit-content;
+	font-family: "Montserrat", sans-serif;
+	font-weight: 500;
+	height: fit-content;
+}
+
+#home .box {
+	font-family: sans-serif;
+	position: relative;
+	max-width: 70%;
+	color: white;
+	margin: auto;
+	padding: 2.5%;
+	animation: fadeIn 1s ease-in-out forwards;
+}
+
+#home .left {
+	margin: auto;
+	margin-left: 10vw;
+}
+#home .right {
+	margin: auto;
+	margin-right: 10vw;
+}
+#home .mid .head,
+#home .mid .desc {
+	clip-path: inset(0 50% 0 50%);
+	animation: cropMid 0.5s ease-in-out forwards;
+	animation-delay: 0.5s;
+}
+#home .left .head,
+#home .left .desc {
+	clip-path: inset(0 50% 0 50%);
+	animation: cropLeft 0.5s ease-in-out forwards;
+	animation-delay: 0.5s;
+}
+#home .right .head,
+#home .right .desc {
+	clip-path: inset(0 50% 0 50%);
+	animation: cropRight 0.5s ease-in-out forwards;
+	animation-delay: 0.5s;
+}
+#home .mid::before {
+	content: "";
+	position: absolute;
+	border-top: 0.25em solid rgb(255, 153, 0);
+	border-right: 0.25em solid rgb(255, 153, 0);
+	animation: rb-mid 1s ease-in-out forwards;
+}
+#home .mid::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 25%;
+	height: 50%;
+	border-bottom: 0.25em solid rgb(255, 153, 0);
+	border-left: 0.25em solid rgb(255, 153, 0);
+	animation: lb-mid 1s ease-in-out forwards;
+}
+
+#home .left::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	border-right: 0.25em solid rgb(255, 153, 0);
+	animation: lb 1s ease-in-out forwards;
+}
+#home .right::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	border-right: 0.25em solid rgb(255, 153, 0);
+	animation: rb 1s ease-in-out forwards;
+}
+/* end home */
+/* Profil */
+#profil {
+	justify-content: space-between;
+}
+#profil .content {
+	display: flex;
+	flex-direction: column;
+}
+#profil .content p {
+	max-height: 18rem;
+	padding: 0 1rem;
+}
+
+#profil .data {
+	display: flex;
+	width: 100%;
+}
+#profil .data ul {
+	text-align: center;
+	flex: 1;
+}
+.data ul li.head {
+	font-size: 1.25rem;
+	font-weight: 700;
+	line-height: 1;
+}
+
+.data ul li.body {
+	font-weight: 400;
+	line-height: 1rem;
+	font-size: 0.5rem;
+}
+/* end profil */
+
+/* Potensi */
+#potensi {
+	background: url("../img/background/potensi.jpg");
+	min-height: 0;
+}
+
+/* galeri */
+.galeri-card {
+	border: 1px solid black;
+	padding: 15px;
+	background: #ffffff;
+	border-radius: 20px;
+	margin: 2em 0;
+}
+.galeri-card img {
+	border-radius: inherit;
+	width: 100%;
+	height: 10em;
+	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+}
+.galeri-card div.title {
+	margin: 1em 0 0 0;
+}
+.swiper-button-next {
+	right: 0;
+}
+.swiper-button-prev {
+	left: 0;
+}
+.swiper-slide {
+	background: transparent;
+}
+.swiper-slide .galeri-card {
+	width: 80%;
+}
+.swiper-button-next:after,
+.swiper-button-prev:after {
+	font-size: 20px;
+}
+/* end galeri */
+
+/* testimonial */
+#testimonial {
+	background-image: url("../img/background/testi.png");
+	color: #ffffff;
+}
+/* #testimonial h1.title::before {
+	border: 1px solid rgb(255, 255, 255);
+	border-right: 0;
+} */
+#testimonial h3 {
+	text-transform: capitalize;
+	margin-top: 1em;
+}
+#people #avatar {
+	overflow-y: auto;
+	display: flex;
+	padding: 1em 0;
+	flex-wrap: nowrap;
+}
+#avatar img {
+	width: 50%;
+	height: 50%;
+	border-radius: 100%;
+	margin: 0 2%;
+}
+#avatar img:first-child {
+	margin-left: 0;
+}
+#avatar img:last-child {
+	margin-right: 0;
+}
+#people li {
+	font-size: small;
+	margin: 1em 0;
+}
+
+/* end testimonial */
+
+/* EDUKASI HTML */
+#edukasi {
+	padding: 0 10%;
+	flex-direction: column;
+}
+
+.e-card,
+#games {
+	color: rgb(255, 255, 255);
+	min-width: 0;
+	border-radius: 10px;
+	display: flex;
+	padding: 0.5em;
+	align-items: center;
+	transition: all 0.25s ease-out;
+	margin: 10% auto;
+}
+.e-card:nth-child(1) {
+	background-color: #2447f9;
+}
+.e-card:nth-child(2) {
+	background-color: #2447f9;
+}
+.e-card:nth-child(3) {
+	background-color: #2447f9;
+}
+.e-card:nth-child(4) {
+	background-color: #2447f9;
+}
+.e-card:nth-child(5) {
+	background-color: #2447f9;
+}
+.e-card:nth-child(6) {
+	background-color: #2447f9;
+}
+#games {
+	background-color: #2447f9;
+}
+.e-card img,
+#games img {
+	background-color: rgb(0, 0, 0);
+	padding: 0.5em;
+	border-radius: 10px;
+	width: 100px;
+	height: 100px;
+	margin-bottom: 0.5em;
+}
+
+.e-card h2,
+#games h2 {
+	text-align: center;
+	font-weight: 550;
+}
+.e-card .body {
+	max-height: 0;
+	height: 0;
+	width: 0;
+	margin-left: 0em;
+	border-radius: 0 10px 10px 0;
+	flex: 1;
+	overflow: hidden;
+	border-left: 0;
+	transition: all 0.2s;
+}
+.e-card .body ul {
+	font-size: small;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	min-height: 100%;
+}
+.e-card li {
+	display: flex;
+}
+.e-card .body ul li a {
+	flex: 1;
+	border-radius: 0;
+	padding: 1em;
+	background-color: rgb(255, 253, 250);
+	white-space: nowrap;
+}
+.e-card .body ul li a:hover {
+	background-color: rgb(235, 233, 231);
+}
+.e-card .body ul li a:active {
+	background-color: rgb(199, 198, 196);
+}
+#games,
+.e-card,
+.galeri-card {
+	box-shadow: 0 0 0px black;
+	transform: scale(1);
+	transition: all 0.5s;
+}
+#games:hover,
+.e-card:hover,
+.galeri-card:hover {
+	box-shadow: 0 0 10px black;
+	/* transform: scale(1.05); */
+	transition: all 0.5s;
+}
+.e-card:hover {
+	min-width: 100%;
+	transition: all 0.5s ease;
+}
+
+.e-card:hover > .body {
+	/* border-left: 0.1em solid black; */
+	max-height: 100%;
+	height: 100%;
+	margin-left: 0.5em;
+	transition: all 0.5s ease;
+}
+/* END EDUKASI HTML */
+
+/* ARTIKEL HTML */
+#abstract,
+.materi,
+.content {
+	min-height: 0;
+	padding-top: 0;
+}
+#abstract img {
+	width: 100%;
+	height: 25vh;
+	margin: 1.5em 0;
+}
+
+.materi .content {
+	position: relative;
+	background-color: #ff701f;
+	border-radius: 1em;
+	width: 100%;
+	height: 50vh;
+	color: white;
+	padding: 1em;
+}
+.materi .content i {
+	position: absolute;
+	font-size: x-large;
+	top: 2.5em;
+}
+.materi .content i.l {
+	left: 0.5em;
+}
+.materi .content i.r {
+	right: 0.5em;
+}
+.materi .content img {
+	border-radius: inherit;
+	margin: auto;
+	height: 7.5em;
+	width: 7.5em;
+}
+.materi .content h2.title {
+	margin: 0.5em auto;
+}
+.materi .content::after {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-top: 1.5em solid #ff701f;
+	border-left: 1.5em solid transparent;
+	border-bottom: 1.5em solid transparent;
+	border-right: 1.5em solid transparent;
+	top: 100%;
+	left: 50%;
+	margin-top: -1%;
+	margin-left: -1.5em;
+}
+
+.maskot {
+	margin-top: 0;
+	padding: auto;
+	width: 100%;
+	height: 40vh;
+	object-fit: contain;
+	background: transparent;
+}
+/* END ARTIKEL HTML */
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+	header,
+	footer {
+		padding: 0.5em 1.25em;
+	}
+	header h1 {
+		font-size: medium;
+	}
+	nav a {
+		padding: 0.5rem 1.75rem;
+		font-size: x-small;
+	}
+	nav {
+		width: 40%;
+	}
+	#profil .content {
+		flex-direction: row;
+	}
+	#profil .content video {
+		height: 25%;
+	}
+	#profil .content video,
+	#profil .content .text {
+		width: 50%;
+	}
+	#profil .content .text p {
+		max-height: 13rem;
+	}
+	.data ul li.head {
+		font-size: 2rem;
+	}
+	#galeri-collection {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+	#galeri-collection .galeri-card {
+		width: 30%;
+	}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}
