@@ -101,7 +101,6 @@ footer,
 header,
 hgroup,
 menu,
-nav,
 section {
 	width: 100%;
 	display: flex;
@@ -113,18 +112,20 @@ body {
 	line-height: 1;
 	min-height: 100vh;
 }
-
 header,
 footer {
-	padding: 0.5rem 1rem;
+	padding: 1vh 2vw;
 	justify-content: space-between;
 	align-items: center;
 }
 
 section {
-	padding: 2em;
+	padding: 2.5vh 5vw;
 	flex-direction: column;
 	min-height: 100vh;
+}
+section#abstract {
+	/* margin-top: 7.5vh; */
 }
 
 ol,
@@ -185,12 +186,13 @@ section h2.sub-title {
 	font-weight: 400;
 	width: fit-content;
 	position: relative;
+	text-align: center;
 }
 section h1.title {
-	font-size: x-large;
+	font-size: 3.5vh;
 }
 section h2.sub-title {
-	font-size: medium;
+	font-size: 2vh;
 }
 section h1.title::before {
 	content: "";
@@ -215,7 +217,7 @@ p {
 	text-align: justify;
 	line-height: 1.5;
 	overflow: auto;
-	font-size: small;
+	font-size: 2vh;
 }
 
 a {
@@ -251,4 +253,20 @@ a {
 	-ms-flex-align: center;
 	-webkit-align-items: center;
 	align-items: center;
+}
+
+p::-webkit-scrollbar,
+div::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+
+p::-webkit-scrollbar-track,
+div::-webkit-scrollbar-track {
+	background-color: lightgray;
+}
+
+p::-webkit-scrollbar-thumb,
+div::-webkit-scrollbar-thumb {
+	background-color: #2447f9;
 }
