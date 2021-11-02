@@ -123,6 +123,10 @@ section {
 	padding: 2.5vh 5vw;
 	flex-direction: column;
 	min-height: 100vh;
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
 }
 section#abstract {
 	/* margin-top: 7.5vh; */
@@ -257,8 +261,8 @@ a {
 
 p::-webkit-scrollbar,
 div::-webkit-scrollbar {
-	width: 10px;
-	height: 10px;
+	width: 1vh;
+	height: 1vh;
 }
 
 p::-webkit-scrollbar-track,

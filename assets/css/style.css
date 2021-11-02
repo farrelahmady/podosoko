@@ -41,6 +41,9 @@ nav a {
 nav a:last-child {
 	margin-right: 0;
 }
+nav a:hover {
+	background-color: rgb(236, 236, 236);
+}
 .btn {
 	font-weight: 600;
 	color: white;
@@ -349,7 +352,7 @@ footer i {
 #people #avatar {
 	overflow-y: auto;
 	display: flex;
-	padding: 1em 0;
+	padding: 2vh 1vw;
 	flex-wrap: nowrap;
 }
 #avatar img {
@@ -361,6 +364,10 @@ footer i {
 	border-radius: 100%;
 	overflow: hidden;
 	margin: 0 2%;
+	filter: blur(5px);
+}
+#avatar img.active {
+	filter: blur(0);
 }
 #avatar img:first-child {
 	margin-left: 0;
@@ -377,8 +384,10 @@ footer i {
 /* EDUKASI HTML */
 .e-card-container {
 	width: calc(100%);
-	border: 1px solid red;
+	/* border: 1px solid red; */
 	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .e-card {
 	display: flex;
@@ -386,6 +395,7 @@ footer i {
 	margin: 25px auto;
 	padding: 0.5em;
 	background-color: #2447f9;
+
 	min-width: 0%;
 	transition: all 0.5s ease;
 }
@@ -422,7 +432,7 @@ footer i {
 	border-radius: 0;
 	padding: 1em;
 	background-color: rgb(255, 253, 250);
-	white-space: nowrap;
+	/* white-space: nowrap; */
 }
 .e-card .body ul li a:hover {
 	background-color: rgb(235, 233, 231);
@@ -435,7 +445,9 @@ div.e-card:hover {
 	min-width: 100%;
 	transition: all 0.5s ease;
 }
-
+.e-card:hover {
+	box-shadow: 0 0 2vh black;
+}
 div.e-card:hover > .body {
 	margin-left: 0.5em;
 	max-height: 100%;
@@ -605,10 +617,25 @@ div.e-card:hover > .body {
 		overflow: hidden;
 		margin: 0 2%;
 	}
+	#edukasi {
+		padding: 0;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+	.e-card-container {
+		width: calc(100vw / 4);
+	}
+	.e-card:hover {
+		box-shadow: 0 0 2vw black;
+	}
+	p::-webkit-scrollbar,
+	div::-webkit-scrollbar {
+		width: 0.75vw;
+		height: 0.75vw;
+	}
 }
 
-@media only screen and (orientation: landscape) {
-}
 /* Small devices (portrait tablets and large phones, 600px and up) */
 /* @media only screen and (min-width: 600px) {
 	section h1.title {
