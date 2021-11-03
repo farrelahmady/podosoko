@@ -15,7 +15,7 @@ $(document).ready(function () {
 	titleBox.appendChild(subTitle);
 
 	const slideShow = {
-		img: ["1.jpg", "2.jpg", "3.jpg"],
+		img: ["1.webp", "2.webp"],
 		idx: -1,
 		loop: 0,
 		randNum: function (n) {
@@ -113,4 +113,43 @@ $(document).ready(function () {
 		slideShow.run();
 	});
 	$("#home .r").click();
+});
+
+const slider = document.querySelector("#avatar");
+let isDown = false;
+let startX;
+let scrollLeft;
+
+slider.addEventListener("mousedown", (e) => {
+	isDown = true;
+	slider.classList.add("active");
+	startX = e.pageX - slider.offsetLeft;
+	scrollLeft = slider.scrollLeft;
+});
+slider.addEventListener("mouseleave", () => {
+	isDown = false;
+	slider.classList.remove("active");
+});
+slider.addEventListener("mouseup", () => {
+	isDown = false;
+	slider.classList.remove("active");
+});
+slider.addEventListener("mousemove", (e) => {
+	if (!isDown) return;
+	e.preventDefault();
+	const x = e.pageX - slider.offsetLeft;
+	const walk = (x - startX) * 2; //scroll-fast
+	slider.scrollLeft = scrollLeft - walk;
+	console.log(walk);
+});
+
+const avatar = document.querySelectorAll("#avatar img");
+
+avatar.forEach((e) => {
+	e.addEventListener("click", () => {
+		avatar.forEach((elm) => {
+			elm.classList.remove("active");
+		});
+		e.classList.add("active");
+	});
 });

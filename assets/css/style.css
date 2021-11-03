@@ -291,6 +291,7 @@ footer i {
 	background: #ffffff;
 	border-radius: 20px;
 	margin: 2em 0;
+	cursor: pointer;
 }
 .galeri-card img {
 	border-radius: inherit;
@@ -354,6 +355,10 @@ footer i {
 	display: flex;
 	padding: 2vh 1vw;
 	flex-wrap: nowrap;
+	cursor: pointer;
+}
+#people #avatar.active {
+	cursor: grabbing;
 }
 #avatar img {
 	object-fit: cover;
@@ -389,12 +394,14 @@ footer i {
 	align-items: center;
 	justify-content: center;
 }
+
 .e-card {
 	display: flex;
 	border-radius: 10px;
 	margin: 25px auto;
 	padding: 0.5em;
 	background-color: #2447f9;
+	cursor: pointer;
 
 	min-width: 0%;
 	transition: all 0.5s ease;
@@ -434,10 +441,10 @@ footer i {
 	background-color: rgb(255, 253, 250);
 	/* white-space: nowrap; */
 }
-.e-card .body ul li a:hover {
+.e-card .body li a:hover {
 	background-color: rgb(235, 233, 231);
 }
-.e-card .body ul li a:active {
+.e-card .body li a:active {
 	background-color: rgb(199, 198, 196);
 }
 
@@ -446,7 +453,7 @@ div.e-card:hover {
 	transition: all 0.5s ease;
 }
 .e-card:hover {
-	box-shadow: 0 0 2vh black;
+	box-shadow: 0 0 1vh black;
 }
 div.e-card:hover > .body {
 	margin-left: 0.5em;
@@ -624,10 +631,10 @@ div.e-card:hover > .body {
 		justify-content: space-around;
 	}
 	.e-card-container {
-		width: calc(100vw / 4);
+		width: calc(100% / 3);
 	}
 	.e-card:hover {
-		box-shadow: 0 0 2vw black;
+		box-shadow: 0 0 1vw black;
 	}
 	p::-webkit-scrollbar,
 	div::-webkit-scrollbar {
