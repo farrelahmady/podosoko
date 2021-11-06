@@ -1,6 +1,15 @@
 $(document).ready(function () {
 	// const img = ["1.jpg", "2.jpg", "3.jpg"];
-	const imageURL = "../assets/img/slideshow/landscape/";
+	let imageURL = "";
+	function mediaChanged(mediaQuery) {
+		if (mediaQuery.matches) {
+			// If media query matches
+			imageURL = "img/slideshow/landscape/";
+		} else {
+			imageURL = "img/slideshow/portrait/";
+		}
+		slideShow.run();
+	}
 
 	const slidePage = document.createElement("div");
 	slidePage.id = "slide";
@@ -70,14 +79,14 @@ $(document).ready(function () {
 								bgOpc +
 								"), rgba(0, 0, 0, " +
 								bgOpc +
-								")),url('" +
+								")),url('../assets/" +
 								imageURL +
 								this.background;
 
 							bgOpc += 0.005;
 						}, 1);
 						slideShowPage.style.backgroundImage =
-							"url('" + imageURL + this.background;
+							"url('../assets/" + imageURL + this.background;
 						slideShowPage.innerHTML = "";
 						slideShowPage.appendChild(titleBox);
 					});
@@ -90,7 +99,7 @@ $(document).ready(function () {
 			this.background = this.img[this.randNum(this.img.length)];
 			$("html").css(
 				"--slideshow-img-url",
-				"url('../img/slideshow/landscape/" + this.background
+				"url('../" + imageURL + this.background
 			);
 			slideShowPage.appendChild(slidePage);
 			slidePage.innerHTML = "";
@@ -104,6 +113,9 @@ $(document).ready(function () {
 		},
 	};
 
+	var mediaQuery = window.matchMedia("(orientation: landscape)");
+	mediaChanged(mediaQuery); // Call listener function at run time
+	mediaQuery.addListener(mediaChanged); // Attach listener function on state changes
 	$("#home .l").click(function () {
 		slideShow.idx--;
 		slideShow.run();
@@ -113,43 +125,43 @@ $(document).ready(function () {
 		slideShow.run();
 	});
 	$("#home .r").click();
-});
 
-const slider = document.querySelector("#avatar");
-let isDown = false;
-let startX;
-let scrollLeft;
+	const slider = document.querySelector("#avatar");
+	let isDown = false;
+	let startX;
+	let scrollLeft;
 
-slider.addEventListener("mousedown", (e) => {
-	isDown = true;
-	slider.classList.add("active");
-	startX = e.pageX - slider.offsetLeft;
-	scrollLeft = slider.scrollLeft;
-});
-slider.addEventListener("mouseleave", () => {
-	isDown = false;
-	slider.classList.remove("active");
-});
-slider.addEventListener("mouseup", () => {
-	isDown = false;
-	slider.classList.remove("active");
-});
-slider.addEventListener("mousemove", (e) => {
-	if (!isDown) return;
-	e.preventDefault();
-	const x = e.pageX - slider.offsetLeft;
-	const walk = (x - startX) * 2; //scroll-fast
-	slider.scrollLeft = scrollLeft - walk;
-	console.log(walk);
-});
+	slider.addEventListener("mousedown", (e) => {
+		isDown = true;
+		slider.classList.add("active");
+		startX = e.pageX - slider.offsetLeft;
+		scrollLeft = slider.scrollLeft;
+	});
+	slider.addEventListener("mouseleave", () => {
+		isDown = false;
+		slider.classList.remove("active");
+	});
+	slider.addEventListener("mouseup", () => {
+		isDown = false;
+		slider.classList.remove("active");
+	});
+	slider.addEventListener("mousemove", (e) => {
+		if (!isDown) return;
+		e.preventDefault();
+		const x = e.pageX - slider.offsetLeft;
+		const walk = (x - startX) * 2; //scroll-fast
+		slider.scrollLeft = scrollLeft - walk;
+		console.log(walk);
+	});
 
-const avatar = document.querySelectorAll("#avatar img");
+	const avatar = document.querySelectorAll("#avatar img");
 
-avatar.forEach((e) => {
-	e.addEventListener("click", () => {
-		avatar.forEach((elm) => {
-			elm.classList.remove("active");
+	avatar.forEach((e) => {
+		e.addEventListener("click", () => {
+			avatar.forEach((elm) => {
+				elm.classList.remove("active");
+			});
+			e.classList.add("active");
 		});
-		e.classList.add("active");
 	});
 });

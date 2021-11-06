@@ -471,15 +471,22 @@ div.e-card:hover > .body {
 	padding-top: 0;
 }
 #abstract img {
-	width: 100%;
-	height: 25vh;
+	/* width: 100%; */
+	object-fit: contain;
+	height: 50vh;
 	margin: 1.5em 0;
+}
+#abstract p {
+	text-indent: 2.5em;
 }
 
 .materi .content {
 	width: 100%;
 	color: white;
 	padding: 0;
+}
+.materi .content p {
+	text-indent: 2.5em;
 }
 .materi .content div.container {
 	height: 53vh;
@@ -507,9 +514,9 @@ div.e-card:hover > .body {
 }
 .materi .content div.swiper-slide img {
 	border-radius: inherit;
-	margin: auto;
-	height: 7.5em;
-	width: 7.5em;
+	margin: 0 auto;
+	height: 50%;
+	/* width: 7.5em; */
 }
 .materi .content div.swiper-slide h2.title {
 	margin: 0.5em auto;
@@ -641,6 +648,35 @@ div.e-card:hover > .body {
 		width: 0.75vw;
 		height: 0.75vw;
 	}
+	.materi {
+		min-height: 100vh;
+		justify-content: space-around;
+		margin: 5vh auto;
+	}
+
+	.materi .maskot {
+		display: inline-block;
+	}
+
+	/* .materi .content .container {
+		width: 1000%;
+		flex: 1;
+		order: 2;
+	} */
+	/* .materi .content div.container::after {
+		content: "";
+		position: absolute;
+		width: 0;
+		height: 0;
+		border-top: 1.5em solid transparent;
+		border-left: 1.5em solid transparent;
+		border-bottom: 1.5em solid transparent;
+		border-right: 1.5em solid #ff701f;
+		top: 50%;
+		left: -2%;
+		margin-top: -1%;
+		margin-left: -1.5em;
+	} */
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */

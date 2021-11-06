@@ -158,7 +158,7 @@ img,
 video {
 	object-fit: cover;
 	object-position: center;
-	background-color: #e4e4e4;
+	/* background-color: #e4e4e4; */
 }
 
 h1,
