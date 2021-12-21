@@ -349,7 +349,10 @@ footer i {
 	text-transform: capitalize;
 	margin-top: 1em;
 }
-
+#people {
+	padding: 0;
+	margin: 2vh 0;
+}
 #people #avatar {
 	overflow-y: auto;
 	display: flex;
@@ -382,6 +385,36 @@ footer i {
 }
 #people li {
 	margin: 1em 0;
+}
+
+table,
+input,
+textarea {
+	width: 100%;
+}
+
+th,
+td {
+	padding: 0.5em;
+	vertical-align: middle;
+	text-align: center;
+}
+th {
+	text-align: left;
+}
+button,
+input,
+textarea {
+	min-width: 15vw;
+	min-height: 5vh;
+	border-radius: 1vh;
+}
+th,
+button,
+input#nama,
+input#pekerjaan,
+input#dusun {
+	text-transform: capitalize;
 }
 
 /* end testimonial */
@@ -423,6 +456,9 @@ footer i {
 	font-weight: 550;
 }
 .e-card .body {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
 	width: 0;
 	min-height: 0;
 	max-height: 0;
@@ -544,9 +580,13 @@ div.e-card:hover > .body {
 	object-fit: contain;
 	background: transparent;
 }
+.content-text{
+	overflow: auto;
+
+}
 /* END ARTIKEL HTML */
 @media only screen and (orientation: landscape) {
-	p {
+	p, .content-text li{
 		font-size: 1.5vw;
 	}
 	section h1.title {
@@ -602,6 +642,7 @@ div.e-card:hover > .body {
 	#profil .content p {
 		max-height: 20vw;
 		margin-top: 0;
+      overflow: auto;
 	}
 	#profil video {
 		margin-bottom: 0;

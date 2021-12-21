@@ -154,14 +154,31 @@ $(document).ready(function () {
 		console.log(walk);
 	});
 
-	const avatar = document.querySelectorAll("#avatar img");
+	const setAvatar = () => {
+		const avatar = document.querySelectorAll("#avatar img");
 
-	avatar.forEach((e) => {
-		e.addEventListener("click", () => {
-			avatar.forEach((elm) => {
-				elm.classList.remove("active");
+		avatar.forEach((e) => {
+			e.addEventListener("click", () => {
+				avatar.forEach((elm) => {
+					elm.classList.remove("active");
+				});
+				e.classList.add("active");
 			});
-			e.classList.add("active");
 		});
-	});
+	};
+
+	let avatarIMG = document.createElement("img");
+	avatarIMG.src = "../assets/img/icon/people";
+	avatarIMG.onclick = function () {
+		const avatar = document.querySelectorAll("#avatar img");
+		avatar.forEach((elm) => {
+			elm.classList.remove("active");
+		});
+		avatarIMG.classList.add("active");
+	};
+	avatarIMG.onerror = function () {
+		avatarIMG.src = "../assets/img/dummy/profile.webp";
+	};
+
+	$("#people #avatar").append(avatarIMG);
 });

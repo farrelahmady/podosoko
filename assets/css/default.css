@@ -216,12 +216,14 @@ h2.sub-title {
 	text-transform: capitalize;
 }
 
-p {
+p, .content-text li {
 	font-weight: 400;
 	text-align: justify;
 	line-height: 1.5;
-	overflow: auto;
 	font-size: 2vh;
+}
+.content-text ol{
+   list-style-type: decimal;
 }
 
 a {
